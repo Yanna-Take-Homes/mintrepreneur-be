@@ -1,24 +1,193 @@
-# Quick Starter repo for Node + Express Server
+## Server is live on:
 
-## Dependencies
-
-- [Node](https://nodejs.org/) 
-- [express](https://expressjs.com/) 
-- [axios](https://www.npmjs.com/package/jsonwebtoken) 
-- [jest](https://jestjs.io/) 
-- [nodemon](nodemonnodemon.io)
-- [supertest](https://www.npmjs.com/package/supertest)
-
-
-# Instructions
-
-- install dependencies: yarn install
-- start application using nodemon: yarn dev
-- start application using node: yarn start
-- test the application: yarn test 
-
-- application will be running locally on port 3000. 
-- Ping route: http://localhost:3000/api/ping
-- Products route: http://localhost:3000/api/products
+https://mintrepreneur-be.herokuapp.com/api/
 
 ---
+
+# PRODUCT ROUTES
+
+## **GET POST**
+
+_Method Url:_ `/api/products`
+
+_HTTP method:_ **[GET]**
+
+#### Response
+
+##### 200 (OK)
+
+```
+{ 
+  "allProducts":
+    [
+      {
+        "id":1,
+        "title":"Mintrepreneur",
+        "created_at":"2021-09-22 14:44:16",
+        "updated_at":"2021-09-22 14:44:16"
+      }
+    ]
+ }
+```
+
+---
+
+## **ADD A PRODUCT**
+
+_Method Url:_ `/api/products`
+
+_HTTP method:_ **[POST]**
+
+#### Body
+
+| name          | type    | required |
+| ------------- | ------- | -------- |
+| `title`       | String  | Yes      |
+
+
+_example:_
+
+```
+{
+    "title": "How to train for 2 marathons",
+}
+```
+
+#### Response
+
+##### 201 (Created)
+
+```
+{
+    "message": "post created!",
+    "allProducts": [
+      {
+          "id": 1,
+          "title": "Mintrepreneur",
+          "created_at": "2019-03-12 17:54:29",
+          "updated_at": "2019-03-12 17:54:29",
+      },
+      {
+          "id": 2,
+          "title": "How to train for 2 marathons",
+          "created_at": "2019-03-12 17:54:29",
+          "updated_at": "2019-03-12 17:54:29",
+      },
+    ]
+}
+```
+
+---
+
+# PRODUCT REVIEWS ROUTES
+
+## **GET REVIEWS**
+
+_Method Url:_ `/api/product-reviews`
+
+_HTTP method:_ **[GET]**
+
+#### Response
+
+##### 200 (OK)
+
+```
+{
+   "allReviews": [
+     {
+       "id":1,
+       "rating":5,
+       "product_id":1,
+       "description":"the bomb.com, awesomeness",
+       "created_at":"2021-09-22 14:44:16",
+       "updated_at":"2021-09-22 14:44:16"
+     },
+     {
+       "id":2,
+       "rating":1,
+       "product_id":1,
+       "description":"fluffier than a rabbit. 5 thumbs down",
+       "created_at":"2021-09-22 14:44:16",
+       "updated_at":"2021-09-22 14:44:16"
+     },
+     {
+       "id":3,
+       "rating":3,
+       "product_id":1,
+       "description":"I like my hot pockets lukewarm, not my books",
+       "created_at":"2021-09-22 14:44:16",
+       "updated_at":"2021-09-22 14:44:16"
+     },
+ ]
+}
+```
+
+---
+
+## **ADD A REVIEW**
+
+_Method Url:_ `/api/product-reviews`
+
+_HTTP method:_ **[POST]**
+
+#### Body
+
+| name          | type    | required |
+| ------------- | ------- | -------- |
+| `product_id`  | Integer | Yes      |
+| `rating`      | Integer | Yes      |
+| `description` | Text    | Yes      |
+
+
+_example:_
+
+```
+{
+    "product_id": 1,
+    "rating": 5,
+    "description": "It was aiiiiiight" 
+}
+```
+
+#### Response
+
+##### 201 (Created)
+
+```
+{
+   "message": "review created!",
+   "allReviews": [
+     {
+       "id":1,
+       "rating":5,
+       "product_id":1,
+       "description":"the bomb.com, awesomeness",
+       "created_at":"2021-09-22 14:44:16",
+       "updated_at":"2021-09-22 14:44:16"
+     },
+     {
+       "id":2,
+       "rating":1,
+       "product_id":1,
+       "description":"fluffier than a rabbit. 5 thumbs down",
+       "created_at":"2021-09-22 14:44:16",
+       "updated_at":"2021-09-22 14:44:16"
+     },
+     {
+       "id":3,
+       "rating":3,
+       "product_id":1,
+       "description":"I like my hot pockets lukewarm, not my books",
+       "created_at":"2021-09-22 14:44:16",
+       "updated_at":"2021-09-22 14:44:16"
+     },
+     {
+      "product_id": 1,
+      "rating": 5,
+      "description": "It was aiiiiiight" 
+      "created_at":"2021-09-22 14:44:16",
+      "updated_at":"2021-09-22 14:44:16"
+     }
+   ]
+}
+```
