@@ -1,15 +1,11 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const server = express();
 server.use(express.json());
 
 server.use(cors({
-    headers:{
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-    },
-}))
+    origin: ['http://localhost:63342', 'https://howto-frontend.netlify.com'],
+}));
 
 /* routes */
 

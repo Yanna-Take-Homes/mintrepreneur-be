@@ -16,8 +16,8 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     let { id, ...newReview } = req.body
     try {
-        const allReviews = await productReviews.insert(newReview);
-        const allReviewsForProduct = await db('product_reviews').where({product_id: newReview.product_id});
+        await productReviews.insert(newReview);
+        const allReviewsForProduct = await db('product_reviews').where({product_id: newReview["product_id"]});
         res.status(201).json({
             message: "review created!",
             allReviewsForProduct
