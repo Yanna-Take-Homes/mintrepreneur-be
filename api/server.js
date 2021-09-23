@@ -4,7 +4,6 @@ const server = express();
 server.use(express.json());
 
 server.use(cors({
-    credentials: true,
     headers:{
         'Accept': 'application/json',
         'Content-Type': 'application/json',
