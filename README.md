@@ -6,7 +6,7 @@ https://mintrepreneur-be.herokuapp.com/api/
 
 # PRODUCT ROUTES
 
-## **GET POST**
+## **GET PRODUCTS**
 
 _Method Url:_ `/api/products`
 
